@@ -8,11 +8,11 @@ import os
 
 def get_connection():
     return mysql.connector.connect(
-        host=os.environ["MYSQLHOST"],
-        user=os.environ["MYSQLUSER"],
-        password=os.environ["MYSQLPASSWORD"],
-        database=os.environ["MYSQLDATABASE"],
-        port=int(os.environ["MYSQLPORT"])
+        host=os.environ.get("MYSQLHOST", "127.0.0.1"),          # valeur par défaut locale
+        user=os.environ.get("MYSQLUSER", "root"),
+        password=os.environ.get("MYSQLPASSWORD", "root"),
+        database=os.environ.get("MYSQLDATABASE", "BDDA"),
+        port=int(os.environ.get("MYSQLPORT", 8889))
     )
 
 # --- Examens ---
