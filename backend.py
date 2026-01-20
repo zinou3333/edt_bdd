@@ -3,13 +3,16 @@ import pandas as pd
 import os
 # --- Connexion MySQL ---
 
+import mysql.connector
+import os
+
 def get_connection():
     return mysql.connector.connect(
-        host=os.environ["mysql.railway.internal"],
-        user=os.environ["root"],
-        password=os.environ["kKrMsXjWdgCvrFPjVddcQvcLQypURXlZ"],
-        database=os.environ["railway"],
-        port=int(os.environ["3306"])
+        host=os.environ["MYSQLHOST"],
+        user=os.environ["MYSQLUSER"],
+        password=os.environ["MYSQLPASSWORD"],
+        database=os.environ["MYSQLDATABASE"],
+        port=int(os.environ["MYSQLPORT"])
     )
 
 # --- Examens ---
